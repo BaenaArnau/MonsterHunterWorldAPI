@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weapon Details</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .bg-purple {
+            background-color: purple !important;
+            color: white;
+        }
+
+        .bg-orange {
+            background-color: orange !important;
+            color: white;
+        }
+
+        .bg-yellow {
+            background-color: yellow !important;
+            color: black;
+        }
+    </style>
+</head>
+<body class="container">
+<h2 class="mt-4">Weapon Details</h2>
+
+<div class="mt-4">
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <tbody>
+            <tr>
+                <th class="bg-info text-white">ID</th>
+                <td th:text="${weapon.id}"></td>
+            </tr>
+            <tr>
+                <th class="bg-primary text-white">Name</th>
+                <td th:text="${weapon.name}"></td>
+            </tr>
+            <tr>
+                <th class="bg-success text-white">Type</th>
+                <td th:text="${weapon.type}"></td>
+            </tr>
+            <!-- Agregar otras propiedades según sea necesario -->
+            </tbody>
+        </table>
+    </div>
+
+    <h4 class="mt-4">Durability</h4>
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th class="bg-secondary text-white">Level</th>
+                <th class="bg-danger text-white">Red</th>
+                <th class="bg-orange text-white">Orange</th>
+                <th class="bg-yellow text-dark">Yellow</th>
+                <th class="bg-success text-white">Green</th>
+                <th class="bg-info text-white">Blue</th>
+                <th class="bg-light text-dark">White</th>
+                <th class="bg-dark text-white bg-purple">Purple</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="level : ${weapon.durability}">
+                <td class="bg-secondary text-white" th:text="'Level ' + ${level.red}"></td>
+                <td class="bg-danger text-white" th:text="${level.red}"></td>
+                <td class="bg-orange text-white" th:text="${level.orange}"></td>
+                <td class="bg-yellow text-dark" th:text="${level.yellow}"></td>
+                <td class="bg-success text-white" th:text="${level.green}"></td>
+                <td class="bg-info text-white" th:text="${level.blue}"></td>
+                <td class="bg-light text-dark" th:text="${level.white}"></td>
+                <td class="bg-dark text-white bg-purple" th:text="${level.purple}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Agregar tablas para otras propiedades según sea necesario -->
+
+    <h4 class="mt-4">Elements</h4>
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th class="bg-info text-white">Type</th>
+                <th class="bg-success text-white">Damage</th>
+                <th class="bg-primary text-white">Hidden</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="element : ${weapon.elements}">
+                <td class="bg-info text-white" th:text="${element.type}"></td>
+                <td class="bg-success text-white" th:text="${element.damage}"></td>
+                <td class="bg-primary text-white" th:text="${element.hidden}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Agregar tablas para otras propiedades según sea necesario -->
+
+</div>
+
+<!-- Bootstrap JS and Popper.js (for Bootstrap features) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.8/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

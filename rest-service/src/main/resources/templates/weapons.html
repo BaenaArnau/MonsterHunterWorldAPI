@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weapon Details</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body class="container">
+<h1 class="text-center mb-4">Weapon Details</h1>
+
+<div class="row d-flex align-items-stretch">
+    <div th:each="weapon : ${weapons}" class="col-md-2 mb-4 flex-fill">
+        <div class="card h-100">
+            <img th:src="${weapon.assets.image != null ? weapon.assets.image : weapon.assets.icon}" alt="Weapon Image" class="card-img-top" id="weaponImage"/>
+            <div class="card-body d-flex flex-column">
+                <h5 th:text="${weapon.name}" class="card-title"></h5>
+                <a th:href="@{'/weapon/' + ${weapon.id}}" class="btn btn-primary btn-sm mt-auto">Details</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS and Popper.js (for Bootstrap features) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.8/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
